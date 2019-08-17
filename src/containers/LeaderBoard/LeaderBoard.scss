@@ -1,0 +1,23 @@
+.LeaderBoardContainer {
+    padding: 3% 6%;
+    box-sizing: border-box;
+    font-size: 23px;
+    position: relative;
+
+    .LeaderBoardHeading {
+        color: rgb(47, 72, 135);
+        font-weight: 500;
+        padding-right: 30px;
+
+        &::before{
+            content: '';
+            mask: url('../../assests/leaderboard.svg');
+            mask-size: cover;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgb(47, 72, 135);
+            transform: translate(-25px, 2px);
+        }
+    }
+}

@@ -1,0 +1,58 @@
+.SideDrawerContainer {
+    width: 12%;
+    position: absolute;
+    background: #fff;
+    height: 100vh;
+    padding-top: 2%;
+    box-sizing: border-box;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            box-sizing: border-box;
+            padding: 10px 0 30px 39px;
+            font-size: 13px;
+            font-weight: bold;
+            position: relative;
+            display: inline-block;
+            height: 5vh;
+            width: 100%;
+            cursor: pointer;
+
+            &:hover {
+                background: rgb(245, 245, 245);
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-repeat: no-repeat;
+                background-size: 20px;
+                width: 20px;
+                height: 20px;
+                transform: translate(-24px, -2px);
+            }
+
+            &.ListQuestionsNav {
+                &::before {
+                    background-image: url('../../assests/Questions.svg');
+                }
+            }
+
+            &.LeaderBoardNav {
+                &::before {
+                    background-image: url('../../assests/leaderboard.svg');
+                }
+            }
+
+            &.RecordNav {
+                &::before {
+                    background-image: url('../../assests/Record.svg');
+                }
+            }
+        }
+    }
+}

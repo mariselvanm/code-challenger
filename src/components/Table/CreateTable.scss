@@ -1,0 +1,97 @@
+.TableContainer {
+    .HeaderContainer, .BodyContainer li {
+        height: 46px;
+    }
+    
+    .HeaderContainer {
+        width: 100%;
+        display: table;
+        table-layout: fixed; 
+        border-collapse: collapse;
+        box-shadow: 0 1px 1px 0 rgba(60,64,67,.08), 0 1px 3px 1px rgba(60,64,67,.16);
+        font-weight: 500;
+
+        li {
+            display: table-cell;
+            text-align: center;
+            background: #fff;
+            vertical-align: middle;
+            word-wrap: break-word;
+        }
+    }
+
+    .BodyContainer {
+        width: 100%;
+        table-layout: fixed; 
+        border-collapse: collapse;
+        background: #fff;
+        font-size: 18px;
+        padding: 0;
+        margin:0;
+        max-height: 400px;
+        overflow: auto;
+        box-shadow: 0 1px 1px 0 rgba(60,64,67,.08), 0 1px 3px 1px rgba(60,64,67,.16);
+        
+        li {
+            display: table;
+            text-align: center;
+            width: 100%;
+            vertical-align: middle;
+            word-wrap: break-word;
+
+            span {
+                display: inline-block;
+                width: 33.3%;
+                text-align: center;
+                vertical-align: middle;
+                word-wrap: break-word;
+                height: inherit;
+                padding-top: 1%;
+                box-sizing: border-box;
+            }
+
+            &:hover {
+                background: rgb(245, 245, 245);
+            }
+
+            &:nth-child(odd) {
+                background: #f5f5f58a;
+            }
+        }
+    }
+}
+
+// .TableContainer {
+//     position: relative;
+//     margin-top: 6%;
+//     color: #8a8a97;
+//     background: #fff;
+//     width: 63%;
+
+//     .TableElement{
+//         width: 100%;
+//         table-layout: fixed;
+
+//         .TableHead{
+//             tr {
+//                 // display:block;
+//             }
+//         }
+
+//         .TableBody{
+//             display:block;
+//             overflow:auto;
+//             height:200px;
+//             width:100%;
+//             position: absolute;
+//         }
+
+//         tr {
+//             width: 100%;
+//         }
+
+//         td {
+//             width: 33.3%;
+//         }
+//     }
+// }
