@@ -4,7 +4,7 @@ import './CreateTable.scss';
 export default function createTable(props) {
     let tableTemplate = props.data.map((rowData, index) => {
         return <li key={index}>
-            <span>{index + 1}</span>
+            <span>{rowData.id}</span>
             <span>{rowData.name}</span>
             <span>{rowData.score}</span>
         </li>

@@ -1,33 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CreateTable from '../../components/Table/CreateTabel';
 import './LeaderBoard.scss';
+import axios from 'axios';
+import Loader from '../../components/Loader/Loader';
 
-const DATA = [
-    {name: "Mari" , score:23},
-    {name: "Priyanga" , score:33},
-    {name: "Rubina" , score:43},
-    {name: "Vamshi" , score:25},
-    {name: "Vanitha" , score:27},
-    {name: "Arjun" , score:20},
-    {name: "Gayathri" , score:43},
-    {name: "Shylajha" , score:43},
-    {name: "Mari" , score:23},
-    {name: "Priyanga" , score:33},
-    {name: "Rubina" , score:43},
-    {name: "Vamshi" , score:25},
-    {name: "Vanitha" , score:27},
-    {name: "Arjun" , score:20},
-    {name: "Gayathri" , score:43},
-    {name: "Shylajha" , score:43},
-];
+function LeaderBoard() {
+    const [allUserScore, setAllUserScore] = useState(null);
+    const [error, setError] = useState(null);
 
-function leaderBoard() {
+    useEffect(() => {
+        axios.get('http://localhost:3000/api/getAllScores')
+            .then( response => {
+                setAllUserScore(response.data);
+            }).catch( error => {
+                setError(error);
+            });
+    }, []);
+
     return(
         <div className="LeaderBoardContainer">
             <div className="LeaderBoardHeading">Leader Board</div>
-            <CreateTable data={DATA} />
+            { allUserScore ? 
+                <CreateTable data={allUserScore} /> :
+                <Loader />
+            }
         </div>
     );
 }
 
-export default leaderBoard;
+export default LeaderBoard;
