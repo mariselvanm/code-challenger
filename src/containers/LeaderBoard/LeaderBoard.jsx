@@ -7,13 +7,18 @@ import Loader from '../../components/Loader/Loader';
 function LeaderBoard() {
     const [allUserScore, setAllUserScore] = useState(null);
     const [error, setError] = useState(null);
+    const [loderState, setLoderState] = useState(true);
 
     useEffect(() => {
         axios.get('http://localhost:3000/api/getAllScores')
             .then( response => {
-                setAllUserScore(response.data);
+                setTimeout(() => {
+                    setAllUserScore(response.data)
+                    setLoderState(false);
+                }, 2000);
             }).catch( error => {
                 setError(error);
+                setLoderState(false);
             });
     }, []);
 
@@ -21,9 +26,9 @@ function LeaderBoard() {
         <div className="LeaderBoardContainer">
             <div className="LeaderBoardHeading">Leader Board</div>
             { allUserScore ? 
-                <CreateTable data={allUserScore} /> :
-                <Loader />
+                <CreateTable data={allUserScore} /> : null
             }
+            <Loader state={loderState} />
         </div>
     );
 }

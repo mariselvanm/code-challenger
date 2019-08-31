@@ -1,11 +1,14 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import CodeChallenger from './containers/CodeChallenger';
 
 function App() {
   return (
-    <div className="App">
-      <CodeChallenger />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <CodeChallenger />
+      </div>
+    </BrowserRouter>
   );
 }
 

@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Loader.scss';
 
-function Loader() {
+function Loader(props) {
+    const [isLoaderShown, setLoaderState] = useState(false);
+
+    useEffect(() => {
+        setLoaderState(props.state);
+    },[props.state]);
+
     return(
-        <div className="LoaderComponent">
+        <div className={`LoaderComponent  ${isLoaderShown ? 'shown':'hide'}`}>
             {/* Spinner Loader copied from https://loading.io/css/ */}
             <div className="lds-facebook">
                 <div></div>
