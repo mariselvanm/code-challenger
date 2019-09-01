@@ -3,21 +3,19 @@ import CreateTable from '../../components/Table/CreateTabel';
 import './LeaderBoard.scss';
 import axios from 'axios';
 import Loader from '../../components/Loader/Loader';
+import { toast } from 'react-toastify';
 
 function LeaderBoard() {
     const [allUserScore, setAllUserScore] = useState(null);
-    const [error, setError] = useState(null);
     const [loderState, setLoderState] = useState(true);
 
     useEffect(() => {
-        axios.get('http://localhost:3000/api/getAllScores')
+        axios.get('/getAllScores')
             .then( response => {
-                setTimeout(() => {
-                    setAllUserScore(response.data)
-                    setLoderState(false);
-                }, 2000);
+                setAllUserScore(response.data);
+                setLoderState(false);
             }).catch( error => {
-                setError(error);
+                toast.error(`Error on loading leaderboard...`);
                 setLoderState(false);
             });
     }, []);
